@@ -7,31 +7,24 @@ module.exports = function(app) {
     });
 
     app.post("/api/friends", function(req, res) {
+
+        var diffArray = [];
+
+        var newUser = req.body;
         
-        friendsData.push(req.body);
-        console.log(req.body);
-
-        var newUserScore = req.body.scores;
-        
-        var bestMatchScore = 50;
-
-        var score;
-
-        var matchName;
-
-        for (var i = 0; i <friendsData.length; i++){
-            
-            for (var j = 0; j <friendsData[i].scores.length; j++){
-
-                score += Math.abs(friendsData[i].scores[j] - newUserScore[j]);
-
-                if (score < bestMatchScore) {
-                    bestMatchScore = score;
-                    matchName = friendsData[i];
-                }
+        for (var i = 0; i < friendsData.length; i++) {
+            var scoreDiff= 0;
+            for (var j = 0; j < friendsData[i].scores.length; j++) {
+                    scoreDiff+= Math.abs(friendsData[i].scores[j] - newUser.scores[j]) 
             }
+            diffArray.push(scoreDiff);
         }
-        console.log(matchName);
-        return res.json(matchName);
+        var matchIndex = diffArray.indexOf(Math.min(...diffArray));
+       
+    
+        var match = friendsData[matchIndex];
+    
+        res.json(match)
+        friendsData.push(newUser);
     });
 };
