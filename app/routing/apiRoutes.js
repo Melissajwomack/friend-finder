@@ -30,7 +30,7 @@ module.exports = function(app) {
                 }
             }
         }
-
+        console.log(matchName);
         return res.json(matchName);
     });
 };
