@@ -15,13 +15,12 @@ module.exports = function(app) {
         var bestMatchScore = 50;
 
         var score;
-        
-        var matchName = friendsData[0];
-        matchName;
+
+        var matchName;
 
         for (var i = 0; i <friendsData.length; i++){
             
-            for (var j = 0; j <friendsData[i].scores[j].length; j++){
+            for (var j = 0; j <friendsData[i].scores.length; j++){
 
                 score += Math.abs(friendsData[i].scores[j] - newUserScore[j]);
 
