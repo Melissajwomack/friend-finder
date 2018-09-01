@@ -4,8 +4,8 @@ This full stack app compares users and matches them with another compatible user
 ## How to use the app:
 * Go to this link: https://pure-citadel-25503.herokuapp.com/ .
 * Enter your name and a link to a photo of you.
-* Chose a value from 1-5 in response to the question.
-* Press enter to see your match!
+* Chose a value from 1-5 in response to each question.
+* Click submit to see your match!
 
 ## Other info:
 
